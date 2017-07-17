@@ -1,51 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Bootstrap Example</title>
+        <title>Jäsenrekisteri</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+        </script>
+
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <style>
-            html, body{
-            font-family: "open sans", "helvetica Neue", helvetica, arial, sans-serif;
-            background-color: #f3f3f4;
-            color: #676a6c;
-            height: 100%;
-            }
-            .box{
-            border: 1px red dotted;
-            }
-            #side-menu{
-            background-color: #2f4050;
-            padding: 0px;
-            }
-            #side-menu h1{
-            color: #1f3647;
-            text-align: center;
-            margin: 10px 0px;
-            font-size: 25px;
-            }
-            .display-table{
-            display: table;
-            padding: 0px;
-            height: 100%;
-            width: 100%;
-            }
-            .display-table-row{
-            display: table-row;
-            height: 100%;
-            }
-            .display-table-cell{
-            display: table-cell;
-            float: none;
-            height: 100%;
-            }
-            .valign-top{
-            vertical-align: top ;
-            }
-</style>
+
+        <script src="C:\xampp\htdocs\testi\search.js">
+        </script>
+
         <title></title>
     </head>
     <body>
@@ -62,7 +34,7 @@
                             .
 
                             <div class="col-md-5">
-                                <input type="text" placeholder="etsi...">
+                                <input type="text" id="myInput" onkeyup="myFunction()"  placeholder="etsi...">
                             </div>
                             <div class="col-lg-12">
                                 <h2>Laskut</h2>
@@ -78,7 +50,7 @@
                                     <th><br>PVM</br>Summa</th>
                                     <th><br>Erä3</br>Viite
                                 </th>
-                                <th><br>PVM</br>Summa</th> 
+                                <th><br>PVM</br>Summa</th>
                                 <th><br>Erä4</br>Viite
                             </th>
                             <th><br>PVM</br>Summa</th>
@@ -107,8 +79,9 @@
                     </tbody>
                 </table>
             </div>
-        </ul>
     </div>
 </header>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+</body>
+</html>
