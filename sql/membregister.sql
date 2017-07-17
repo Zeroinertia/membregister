@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 17.07.2017 klo 11:44
+-- Generation Time: 17.07.2017 klo 12:17
 -- Palvelimen versio: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -30,9 +30,25 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `getActiveIDs` ()  NO SQL
     COMMENT 'Getting IDs of active members'
 SELECT m_id FROM t_members WHERE m_active=1$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getActiveMembers` ()  NO SQL
+    COMMENT 'Showing IDs and names of all active members'
+SELECT m_id, m_lastname, m_firstname, m_active FROM t_members WHERE m_active<>0$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getActiveNames` ()  NO SQL
     COMMENT 'Getting the names of active members'
 SELECT m_firstname, m_lastname FROM t_members WHERE m_active=1$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getAllMembers` ()  NO SQL
+    COMMENT 'Showing IDs, Names, and activity of all members'
+SELECT m_id, m_lastname, m_firstname, m_active FROM t_members$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getFirstName` (IN `id` INT(5) UNSIGNED)  NO SQL
+    COMMENT 'Getting specific firstname'
+SELECT m_firstname FROM t_members WHERE m_id='id'$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getLastName` (IN `id` INT(5) UNSIGNED)  NO SQL
+    COMMENT 'Getting specific lastname'
+SELECT m_lastname FROM t_members WHERE m_id='id'$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getRefdata` (IN `newyear` INT)  NO SQL
     COMMENT 'Selecting reference number info'
