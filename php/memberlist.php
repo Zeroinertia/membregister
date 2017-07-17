@@ -1,4 +1,8 @@
 <!DOCTYPE HTML>
+<?php
+    require "connection.php";
+    session_start();
+?>
 <html lang="en">
   <head>
     <title>Jäsenlista</title>
@@ -14,10 +18,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+
   </head>
   <body>
     <div class="container-fluid, display-table">
-      
+      <?php
+          $query = "CALL getActiveMembers";
+          $result = mysqli_query($connection, $query) or die("Query failed: " . mysqli_error());
+
+          while ($row = mysqli_fetch_row($result))
+          {
+              $active = "Yes";
+              if($row[3] == 0)
+                $active = "No";
+
+              echo "<tr>";
+              echo ("<td>ID: " . $row[0] . "</td> <td>Last name: " . $row[1] . " First name: " . $row[2] . "</td> <td>Active: " . $active . "</td>");
+              echo "</tr><br>";
+          }
+      ?>
     </div>
 
   </body>
