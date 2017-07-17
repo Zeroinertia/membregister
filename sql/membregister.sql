@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 17.07.2017 klo 10:51
+-- Generation Time: 17.07.2017 klo 11:44
 -- Palvelimen versio: 10.1.9-MariaDB
 -- PHP Version: 5.6.15
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `membregister`
 --
+CREATE DATABASE IF NOT EXISTS `membregister` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `membregister`;
 
 DELIMITER $$
 --
