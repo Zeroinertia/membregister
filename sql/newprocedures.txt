@@ -1,0 +1,9 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getTAData`(IN `year` INT(4) UNSIGNED)
+    NO SQL
+    COMMENT 'Get IDs, Refnumbers and Paid(bool)s of a year'
+SELECT m_id, ta_refnumber1, ta_paid1, ta_refnumber2, ta_paid2, ta_refnumber3, ta_paid3, ta_refnumber4, ta_paid4 FROM ta_transactionhistory WHERE i_year="year"
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `getNames`(IN `id` INT(5) UNSIGNED)
+    NO SQL
+    COMMENT 'Get last and first name of specific ID'
+SELECT m_lastname, m_firstname FROM t_members WHERE m_id="id"
