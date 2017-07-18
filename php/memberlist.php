@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<<<<<<< HEAD
+
+<html lang="en">
+  <head>
+
+=======
+<html lang="en">
+  <head>
+>>>>>>> 8556b384b908c58d09d5f4ef61219ca29c65b24e
+    <title>Jäsenlista</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<<<<<<< HEAD
+    <?php
+        require "connection.php";
+        session_start();
+    ?>
+  </head>
+  <body>
+
+    <div class="container-fluid, display-table">
+      <table class="table">
+        <tbody>
+          <?php
+              $query = "CALL getActiveMembers";
+              $result = mysqli_query($connection, $query) or die("Query failed: " . mysqli_error());
+
+              while ($row = mysqli_fetch_row($result))
+              {
+                  $active = "Yes";
+                  if($row[3] == 0)
+                    $active = "No";
+
+                  echo "<tr>";
+                  echo ("<td>ID: " . $row[0] . "</td>
+                    <td>Last name: " . $row[1] . " First name: " . $row[2] . "</td>
+                    <td>Active: " . $active . "</td>");
+                  echo "</tr><br>";
+              }
+          ?>
+        </tbody>
+      </table>
+=======
+  </head>
+  <body>
+    <div class="container-fluid, display-table">
+      
+>>>>>>> 8556b384b908c58d09d5f4ef61219ca29c65b24e
+    </div>
+
+  </body>
+</html>
