@@ -1,8 +1,13 @@
 <!DOCTYPE HTML>
+<<<<<<< HEAD
 
 <html lang="en">
   <head>
 
+=======
+<html lang="en">
+  <head>
+>>>>>>> 8556b384b908c58d09d5f4ef61219ca29c65b24e
     <title>Jäsenlista</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +21,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
     integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+<<<<<<< HEAD
     <?php
         require "connection.php";
         session_start();
@@ -45,6 +51,12 @@
           ?>
         </tbody>
       </table>
+=======
+  </head>
+  <body>
+    <div class="container-fluid, display-table">
+      
+>>>>>>> 8556b384b908c58d09d5f4ef61219ca29c65b24e
     </div>
 
   </body>
