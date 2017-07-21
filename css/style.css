@@ -3,20 +3,16 @@ font-family: "open sans", "helvetica Neue", helvetica, arial, sans-serif;
 background-color: #f3f3f4;
 color: #676a6c;
 height: 100%;
+ margin: 0;
+ padding: 0;
+ overflow: auto;
+
+
 }
 .box{
 border: 1px red dotted;
 }
-#side-menu{
-background-color: #2f4050;
-padding: 0px;
-}
-#side-menu h1{
-color: #1f3647;
-text-align: center;
-margin: 10px 0px;
-font-size: 25px;
-}
+
 .display-table{
 display: table;
 padding: 0px;
@@ -34,4 +30,11 @@ height: 100%;
 }
 .valign-top{
 vertical-align: top ;
+}
+iframe {
+    display: block;       /* iframes are inline by default */
+    background: #000;
+    border: none;         /* Reset default border */
+    height: 100%;        /* Viewport-relative units */
+    width: 100%;
 }
