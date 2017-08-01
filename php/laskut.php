@@ -5,6 +5,7 @@ $page='laskut';
 include('include\header.php');
  ?>
 
+<<<<<<< HEAD
 <script>
 function refupdate() {
 	if(window.XMLHttpRequest) {
@@ -17,6 +18,15 @@ function refupdate() {
 	xmlhttp.send();
 }
 </script>
+=======
+
+<style media="screen">
+.active{
+    background:#357EBD;
+    color:#orange;
+}
+</style>
+>>>>>>> ff0a0b461373a2efd31030ecdf9bb4242818da0e
       <div class="col-md-12">
         <h2>Laskut</h2>
 
@@ -37,6 +47,7 @@ function refupdate() {
             </tr>
 
 
+<<<<<<< HEAD
                    <?php
 
                    $query = "call getTAData('$year')";
@@ -108,6 +119,30 @@ function refupdate() {
 
                      return ($returnval);
                    }
+=======
+                    <?php
+
+                      $query="call getTAData ('$year')";
+                      $result1=mysqli_query($connection, $query) or die("Query fail: " .  mysqli_error($connection));
+
+                      while ($row = mysqli_fetch_row($result1)){
+
+                        $query2="call getNames('$row[0]')";
+                        $result2=mysqli_query($connection,$query2) or die("Query fail: " . mysqli_error($connection));
+
+                        if ($line = mysqli_fetch_row($result2))
+                        {
+                        echo "<tr>";
+                        echo ("<th>" . $row[0] . "</th><th>" . $line[0] . " " . $line[1] . "</th>" .
+                        "<th>" . $row[1] . "</th><th>" . $row[2] . "</th>" .
+                        "<th>" . $row[3] . "</th><th>" . $row[4] . "</th>" .
+                        "<th>" . $row[5] . "</th><th>" . $row[6] . "</th>" .
+                        "<th>" . $row[7] . "</th><th>" . $row[8] . "</th>");
+                        echo "</tr>";
+                      }
+                      }
+
+>>>>>>> ff0a0b461373a2efd31030ecdf9bb4242818da0e
                    ?>
 
 
@@ -117,7 +152,11 @@ function refupdate() {
     <tr>
           <td></td>
           <td></td>
+<<<<<<< HEAD
           <td><button type="button" class="btn btn-default" onclick="refupdate();">Label</button></td>
+=======
+          <td> <input type='button' onClick="jQuery(this).toggleClass('active')" value='click me'></td>
+>>>>>>> ff0a0b461373a2efd31030ecdf9bb4242818da0e
           <td></td>
           <td><button type="button" class="btn btn-default">Label</button> </td>
           <td></td>
