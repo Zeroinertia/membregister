@@ -73,7 +73,6 @@
 				do {
 					//Nothing to do here
 				} while (mysqli_next_result($connection));
-			  // Nothing to do here either
 			}
 		}
 
