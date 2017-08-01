@@ -6,7 +6,12 @@ include('include\header.php');
  ?>
 
 
-
+<style media="screen">
+.active{
+    background:#357EBD;
+    color:#orange;
+}
+</style>
       <div class="col-md-12">
         <h2>Laskut</h2>
 
@@ -28,6 +33,7 @@ include('include\header.php');
 
 
                     <?php
+
                       $query="call getTAData ('$year')";
                       $result1=mysqli_query($connection, $query) or die("Query fail: " .  mysqli_error($connection));
 
@@ -57,7 +63,7 @@ include('include\header.php');
     <tr>
           <td></td>
           <td></td>
-          <td> <button type="button" class="btn btn-default">Label</button></td>
+          <td> <input type='button' onClick="jQuery(this).toggleClass('active')" value='click me'></td>
           <td></td>
           <td><button type="button" class="btn btn-default">Label</button> </td>
           <td></td>
