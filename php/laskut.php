@@ -17,6 +17,15 @@ function refupdate() {
 	xmlhttp.send();
 }
 </script>
+=======
+
+<style media="screen">
+.active{
+    background:#357EBD;
+    color:#orange;
+}
+</style>
+
       <div class="col-md-12">
         <h2>Laskut</h2>
 
@@ -108,6 +117,7 @@ function refupdate() {
 
                      return ($returnval);
                    }
+
                    ?>
 
 
@@ -118,6 +128,7 @@ function refupdate() {
           <td></td>
           <td></td>
           <td><button type="button" class="btn btn-default" onclick="refupdate();">Label</button></td>
+
           <td></td>
           <td><button type="button" class="btn btn-default">Label</button> </td>
           <td></td>
