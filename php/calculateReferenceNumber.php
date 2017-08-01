@@ -17,21 +17,19 @@
 		      while ($row = mysqli_fetch_row($result))
 		      {
 		        $array[$i] = array();
-		        $array[$i]['ta_id'] = $row[0];
-		        $array[$i]['m_id'] = $row[1];
-		        $array[$i]['ref1'] = $row[2];
-		        $array[$i]['ref2'] = $row[3];
-		        $array[$i]['ref3'] = $row[4];
-		        $array[$i]['ref4'] = $row[5];
+		        $array[$i][0] = $row[0];
+		        $array[$i][1] = $row[1];
+		        $array[$i][2] = $row[2];
+		        $array[$i][3] = $row[3];
+		        $array[$i][4] = $row[4];
+		        $array[$i][5] = $row[5];
 		        $i++;
 		      }
 		      unset($i);
 		    }
 		  } while (mysqli_next_result($connection));
 		}
-
 		unset($query);
-		mysqli_free_result($result);
 
 		foreach ($array as &$value)
 		{
@@ -46,29 +44,37 @@
 			{
 				$value[2] = $year . $memID . $value[2];
 				$value[2] = $value[2] . calculateVerificationDigit($value[2]);
+				echo $value[2];
 			}
-
 			if (strlen($value[3]) == 1)
 			{
 				$value[3] = $year . $memID . $value[3];
 				$value[3] = $value[3] . calculateVerificationDigit($value[3]);
+				echo $value[3];
 			}
-
 			if (strlen($value[4]) == 1)
 			{
 				$value[4] = $year . $memID . $value[4];
 				$value[4] = $value[4] . calculateVerificationDigit($value[4]);
+				echo $value[4];
 			}
-
 			if (strlen($value[5]) == 1)
 			{
 				$value[5] = $year . $memID . $value[5];
 				$value[5] = $value[5] . calculateVerificationDigit($value[5]);
+				echo $value[5];
 			}
 
 
-			$updatesql = "CALL updateRefNumbers('$row[0]', '$value[2]', '$value[3]', '$value[4]', '$value[5]')";
-			$updateresult = mysqli_query($connection, $updatesql) or die("Query fail: " . mysqli_error());
+			$updatesql = "CALL updateRefNumbers('$value[0]', '$value[2]', '$value[3]', '$value[4]', '$value[5]')";
+
+			if (mysqli_multi_query($connection, $updatesql))
+			{
+				do {
+					//Nothing to do here
+				} while (mysqli_next_result($connection));
+			  // Nothing to do here either
+			}
 		}
 
 	// Function to calculate the verification digit at the end of the reference number.

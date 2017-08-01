@@ -5,6 +5,8 @@ $page='laskut';
 include('include\header.php');
  ?>
 
+
+
 <script>
 function refupdate() {
 	if(window.XMLHttpRequest) {
@@ -17,14 +19,14 @@ function refupdate() {
 	xmlhttp.send();
 }
 </script>
-=======
-
 <style media="screen">
 .active{
     background:#357EBD;
     color:#orange;
 }
 </style>
+
+
 
       <div class="col-md-12">
         <h2>Laskut</h2>
@@ -117,7 +119,6 @@ function refupdate() {
 
                      return ($returnval);
                    }
-
                    ?>
 
 
