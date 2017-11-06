@@ -25,16 +25,16 @@
     </script>
   </head>
   <body>
-    <table id="derptable" class="display" cellspacing="5">
-      <thead>
-        <tr>
+    <table id="derptable" class="display">
+      <thead style="display: grid">
+        <tr style="display: grid; grid-template-columns: 1fr 2fr 2fr 1fr">
           <th>Jäsennumero</th>
           <th>Sukunimi</th>
           <th>Etunimi</th>
           <th>Aktiivinen</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="display: grid">
         <?php
           $query = "CALL getAllMembers";
           $result = mysqli_query($connection, $query) or die("Query failed: " . mysqli_error());
@@ -45,7 +45,7 @@
             if ($row[3] == 0)
               $active = "No";
 
-            echo "<tr>";
+            echo "<tr style='display: grid; grid-template-columns: 1fr 2fr 2fr 1fr'>";
             echo "<td>";
             if ($row[0] < 10)
               echo ("00" . $row[0]);
