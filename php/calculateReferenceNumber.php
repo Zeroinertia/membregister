@@ -1,10 +1,17 @@
 <?php
 	require "connection.php";
+	require "billing.php";
 	session_start();
+	$year=0;
+	if (isset($_GET['y']))
+	{
+		$year = ($_GET['y']);
+	}
 ?>
 
 <?php
-
+	if ($year != 0)
+	{
 		$sql = "CALL getRefdata('$year')";
 		$array = array();
 
@@ -75,7 +82,7 @@
 				} while (mysqli_next_result($connection));
 			}
 		}
-
+	}
 	// Function to calculate the verification digit at the end of the reference number.
 	function calculateVerificationDigit($refNumber)
 	{

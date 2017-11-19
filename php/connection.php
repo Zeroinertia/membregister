@@ -8,6 +8,6 @@
 
 	$connection->set_charset('utf8');
 
-	$year = "2017";
+	//$year = "2017";
 
 ?>
