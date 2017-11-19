@@ -10,7 +10,6 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <script src="..\script\search.js"></script>
 
     </head>
 
@@ -39,15 +38,6 @@
                   <li class="<?php if ($page=='koti'){echo 'active';} ?>"><a href="index.php">Koti</a></li>
                   <li class="<?php if ($page=='laskut'){echo 'active';} ?>"><a href="laskut.php">Laskut</a></li>
               </ul>
-
-            <form class="navbar-form navbar-left">
-                  <div class="input-group">
-                      <input type="text" class="form-control"  id="myInput" onkeyup="myFunction()"  placeholder="etsi...">
-                      <span class="input-group-btn">
-                          <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
-                      </span>
-                  </div>
-              </form>
 
               <ul class="nav navbar-nav navbar-right">
                   <li><a href="#">Login</a></li>
