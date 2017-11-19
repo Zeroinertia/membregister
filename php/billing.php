@@ -1,7 +1,7 @@
 <?php
 require ('connection.php');
 session_start();
-$page='laskut';
+$page='billing';
 include('include\header.php');
 ?>
 

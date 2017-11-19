@@ -36,7 +36,9 @@
 
               <ul class="nav navbar-nav">
                   <li class="<?php if ($page=='koti'){echo 'active';} ?>"><a href="index.php">Koti</a></li>
-                  <li class="<?php if ($page=='laskut'){echo 'active';} ?>"><a href="laskut.php">Laskut</a></li>
+                  <li class="<?php if ($page=='billing'){echo 'active';} ?>"><a href="billing.php">Laskut</a></li>
+                    <li class="<?php if ($page=='add'){echo 'active';} ?>"><a href="add.php">Lisää</a></li>
+                      <li class="<?php if ($page=='edit'){echo 'active';} ?>"><a href="edit.php">Muokkaa</a></li>
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
