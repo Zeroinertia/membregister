@@ -1,6 +1,8 @@
 <?php
     require "connection.php";
     session_start();
+    include('include\header.php');
+    include('include\footer.php');
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
