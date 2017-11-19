@@ -32,6 +32,7 @@
     </script>
   </head>
   <body>
+    <a href="#" onClick="MyWindow=window.open('http://www.google.com','MyWin‌​dow','width=600,heig‌​ht=300'); return false;">Click Here</a>
     <table id="derptable" class="display">
       <thead style="display: grid">
         <tr style="display: grid; grid-template-columns: 1fr 2fr 2fr 1fr">
