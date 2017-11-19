@@ -18,7 +18,12 @@
           paging: false,
           info: false,
           "language" : {
-            search : "Etsi:",
+            "sSearch" : "Etsi:",
+            /*paginate : {
+              "sLengthMenu" : "Näytä __MENU__ tulosta",
+              "sPrevious" : "Edellinen",
+              "sNext" : "Seuraava"
+            }*/
           }
         });
       });
