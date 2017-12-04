@@ -41,7 +41,7 @@
       <tbody style="display: grid">
         <?php
           $query = "CALL getActiveMembers";
-          $result = mysqli_query($connection, $query) or die("Query failed: " . mysqli_error());
+          $result = mysqli_query($connection, $query) or die("Query failed: " . mysqli_error($connection));
 
           while ($row = mysqli_fetch_row($result))
           {

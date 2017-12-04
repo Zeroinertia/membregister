@@ -15,7 +15,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 		<script src="../datatables/Datatables-1.10.16/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../datatables/DataTables-1.10.16/css/jquery.dataTables.min.css">
 
@@ -48,6 +48,9 @@
 				}
 			?>
 		</script>
+		<style>
+		th { padding: 5px; }
+		</style>
 
 	</head>
 	<body>
@@ -56,27 +59,17 @@
       <table id="billingtable" class="display">
 				<thead style="display: grid">
 	        <tr style="display: grid, grid-template-columns: 1fr 4fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr">
-						<th rowspan="2">Jäsenro.</th>
-            <th rowspan="2">Nimi</th>
-						<th>Erä 1</th>
-						<th>Eräpäivä</th>
-						<th>Erä 2</th>
-						<th>Eräpäivä</th>
-						<th>Erä 3</th>
-						<th>Eräpäivä</th>
-						<th>Erä 4</th>
-						<th>Eräpäivä</th>
+						<th>Jäsennro.</th>
+						<th>Nimi</th>
+						<th>Erä 1</br>Viitenumero</th>
+						<th>Eräpäivä</br>Summa</th>
+						<th>Erä 2</br>Viitenumero</th>
+						<th>Eräpäivä</br>Summa</th>
+						<th>Erä 3</br>Viitenumero</th>
+						<th>Eräpäivä</br>Summa</th>
+						<th>Erä 4</br>Viitenumero</th>
+						<th>Eräpäivä</br>Summa</th>
 					</tr>
-					<tr>
-            <th>Viitenumero</th>
-            <th>Summa</th>
-            <th>Viitenumero</th>
-            <th>Summa</th>
-            <th>Viitenumero</th>
-            <th>Summa</th>
-            <th>Viitenumero</th>
-            <th>Summa</th>
-	        </tr>
 	      </thead>
 				<tbody style="display: grid">
 					<?php
@@ -116,7 +109,7 @@
               $id = $value['id'];
               $result2 = getNames($connection, $id);
 
-              echo "<tr style='display: grid; grid-template-columns: 1fr 4fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr'>";
+              echo "<tr>";
               echo ("<td>" . $value['id'] . "</td><td>" . $result2 . "</td>" .
               "<td>" . $value['ref1'] . "</td><td>" . $value['paid1'] . "</td>" .
               "<td>" . $value['ref2'] . "</td><td>" . $value['paid2'] . "</td>" .
