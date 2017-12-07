@@ -71,8 +71,8 @@
 						"url": "../script/getTAs.php",
 						"dataSrc": ""
 					},
-          paging: false,
-          info: false,
+          paging: true,
+          info: true,
 					"columns": [
 						{"data": "id"},
 						{"data": "name"},
@@ -87,6 +87,18 @@
 					],
           "language" : {
             "sSearch" : "Etsi:",
+						"lengthMenu": "Näytä _MENU_ tulosta sivulla",
+						"zeroRecords": "Ei yhtään tulosta.",
+						"info": "Näytetään sivu _PAGE_ / _PAGES_",
+						"sInfo": "Näytetään _START_ - _END_ / _TOTAL_ riviä",
+  					"sInfoEmpty": "Ei yhtään tulosta.",
+  					"sInfoFiltered": "(suodatettu _MAX_ rivistä.)",
+						"oPaginate": {
+            "sFirst":    "Ensimmäinen",
+            "sLast":    "Viimeinen",
+            "sNext":    "Seuraava",
+            "sPrevious": "Edellinen"
+						}
           }
         });
       });
@@ -94,12 +106,12 @@
 			//window.onload = getData();
     </script>
 	</head>
-	<body>
+	<body style="max-width: 1500px; padding: 1px;">
     <h2>Laskut</h2>
 
-    <table id="billingtable" class="display" style="width: 100%; margin: 10px; text-align: center;">
+    <table id="billingtable" class="display" style="width: 99%; margin: auto; text-align: center;">
 			<thead style="display: grid;">
-        <tr style="display: grid; grid-template-columns: 3fr 6fr repeat(4, 6fr 4fr);">
+        <tr>
 					<th class='leftie'>Jäsen-</br>numero</th>
 					<th class='leftie'></br>Nimi</th>
 					<th>Erä 1</br>Viitenumero</th>

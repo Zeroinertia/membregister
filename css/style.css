@@ -3,10 +3,9 @@ font-family: "open sans", "helvetica Neue", helvetica, arial, sans-serif;
 background-color: #f3f3f4;
 color: #676a6c;
 height: 100%;
- margin: 0;
- padding: 0;
- overflow: auto;
-
+margin: auto;
+padding: 0;
+overflow: auto;
 
 }
 .box{

@@ -23,8 +23,18 @@
           info: false,
           "language" : {
             "sSearch" : "Etsi:",
-
-          }
+						"lengthMenu": "Näytä _MENU_ tulosta sivulla",
+						"zeroRecords": "Ei yhtään tulosta.",
+						"info": "Näytetään sivu _PAGE_ / _PAGES_",
+						"sInfo": "Näytetään _START_ - _END_ / _TOTAL_ riviä",
+  					"sInfoEmpty": "Ei yhtään tulosta.",
+  					"sInfoFiltered": "(suodatettu _MAX_ rivistä.)",
+						"oPaginate": {
+            "sFirst":    "Ensimmäinen",
+            "sLast":    "Viimeinen",
+            "sNext":    "Seuraava",
+            "sPrevious": "Edellinen"
+						}
         });
       });
     </script>
