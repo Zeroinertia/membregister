@@ -123,7 +123,14 @@ $id = $_GET['id'];
 
               <div class="form-group">
                 <label for="address">Aktiivinen</label><br>
-            <input type="checkbox" checked data-toggle="toggle" data-on="Kyllä" data-off="Ei" data-onstyle="success" data-offstyle="danger" id="activity" checked="checked" />
+
+              <?php
+              if ($active == "0" || $active == 0)
+                echo '<input type="checkbox" data-toggle="toggle" data-on="Kyllä" data-off="Ei" data-onstyle="success" data-offstyle="danger" id="activity" />';
+              else {
+                echo '<input type="checkbox" data-toggle="toggle" data-on="Kyllä" data-off="Ei" data-onstyle="success" data-offstyle="danger" id="activity" checked="checked" />';
+              }
+              ?>
 
             </div>
           </div>

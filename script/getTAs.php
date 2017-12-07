@@ -17,8 +17,14 @@
       $i = 0;
       while ($row = mysqli_fetch_row($result))
       {
+        $leading = "";
+        if ($row[0] < 10)
+          $leading = "00";
+        else if ($row[0] < 100)
+          $leading = "0";
+
         $array[$i] = array();
-        $array[$i]['id'] = $row[0];
+        $array[$i]['id'] = $leading . $row[0];
         $array[$i]['ref1'] = $row[1];
         $array[$i]['paid1'] = $row[2];
         $array[$i]['ref2'] = $row[3];

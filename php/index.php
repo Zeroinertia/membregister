@@ -30,11 +30,12 @@
   					"sInfoEmpty": "Ei yhtään tulosta.",
   					"sInfoFiltered": "(suodatettu _MAX_ rivistä.)",
 						"oPaginate": {
-            "sFirst":    "Ensimmäinen",
-            "sLast":    "Viimeinen",
-            "sNext":    "Seuraava",
-            "sPrevious": "Edellinen"
+              "sFirst":    "Ensimmäinen",
+              "sLast":    "Viimeinen",
+              "sNext":    "Seuraava",
+              "sPrevious": "Edellinen"
 						}
+          }
         });
       });
     </script>
@@ -42,25 +43,26 @@
   <body>
     <table id="indextable" class="display">
       <thead style="display: grid">
-        <tr style="display: grid; grid-template-columns: 1fr 2fr 2fr 1fr">
+        <tr style="display: grid; grid-template-columns: 1fr 2fr 2fr 1fr 1fr">
           <th>Jäsennumero</th>
           <th>Sukunimi</th>
           <th>Etunimi</th>
+          <th>Aktiivinen</th>
           <th>Muokkaa</th>
         </tr>
       </thead>
       <tbody style="display: grid">
         <?php
-          $query = "CALL getActiveMembers";
+          $query = "CALL getAllMembers";
           $result = mysqli_query($connection, $query) or die("Query failed: " . mysqli_error($connection));
 
           while ($row = mysqli_fetch_row($result))
           {
-            //$active = "Yes";
-            //if ($row[3] == 0)
-            //  $active = "No";
+            $active = "Kyllä";
+            if ($row[3] == 0)
+              $active = "Ei";
 
-            echo "<tr style='display: grid; grid-template-columns: 1fr 2fr 2fr 1fr'>";
+            echo "<tr style='display: grid; grid-template-columns: 1fr 2fr 2fr 1fr 1fr'>";
             echo "<td>";
             if ($row[0] < 10)
               echo ("00" . $row[0]);
@@ -68,7 +70,7 @@
               echo ("0" . $row[0]);
             else
               echo $row[0];
-            echo ("</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . "<a href='edit.php?id=" . $row[0] . "'>Muokkaa</a>" . "</td>");
+            echo ("</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $active . "</td><td>" . "<a href='edit.php?id=" . $row[0] . "'>Muokkaa</a>" . "</td>");
             echo "</tr>";
           }
 
