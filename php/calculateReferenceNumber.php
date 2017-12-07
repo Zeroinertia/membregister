@@ -1,11 +1,14 @@
 <?php
 	require "connection.php";
 	require "billing.php";
-	session_start();
-	$year=0;
+
 	if (isset($_GET['y']))
 	{
 		$year = ($_GET['y']);
+	}
+	else
+	{
+		$year = $_SESSION['superyear'];
 	}
 ?>
 

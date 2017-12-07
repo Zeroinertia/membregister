@@ -1,13 +1,17 @@
 <?php
 	require_once('connection.php');
-	session_start();
 	$page='billing';
-	include('include\header.php');
-	$year=2017;
-	if (isset($_GET['year']))
+	include_once('include\header.php');
+
+	if (isset($_GET['y']))
 	{
-		$year = ($_GET['year']);
+		$year = ($_GET['y']);
+		$_SESSION['superyear'] = $year;
 	}
+	else {
+		$year = $_SESSION['superyear'];
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,132 +23,101 @@
 		<script src="../datatables/Datatables-1.10.16/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../datatables/DataTables-1.10.16/css/jquery.dataTables.min.css">
 
+		<script>
+			<?php
+				if ($year != 0)
+				{
+					echo "function refupdate() {
+						if(window.XMLHttpRequest) {
+							xmlhttp = new XMLHttpRequest();
+						} else {
+							xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
+						}
+
+						xmlhttp.open('GET','calculateReferenceNumber.php?y=" . $year . "',true);
+						xmlhttp.send();
+					}";
+				}
+
+				$dueDates = array("20.11." . ($year - 1), "20.01." . $year, "20.03." . $year, "20.05." . $year);
+			?>
+
+			var billingData;
+
+			function getData()
+			{
+				$.ajax({
+					type: 'GET',
+					url: '../script/getTAs.php',
+					dataType: 'json',
+					success: function(data) { billingData = data; console.log(billingData); }
+				});
+			}
+		</script>
+		<style>
+		th {
+			padding: 5px;
+			text-align: center;
+		}
+		.leftie {
+			text-align: left;
+		}
+		tr {
+			display: grid;
+			grid-template-columns: 3fr 6fr repeat(4, 6fr 4fr);
+		}
+		</style>
 		<script type="text/javascript">
       $(document).ready(function() {
         $('#billingtable').DataTable( {
+					"ajax": {
+						"url": "../script/getTAs.php",
+						"dataSrc": ""
+					},
           paging: false,
           info: false,
+					"columns": [
+						{"data": "id"},
+						{"data": "name"},
+						{"data": "ref1"},
+						{"data": "paid1"},
+						{"data": "ref2"},
+						{"data": "paid2"},
+						{"data": "ref3"},
+						{"data": "paid3"},
+						{"data": "ref4"},
+						{"data": "paid4"}
+					],
           "language" : {
             "sSearch" : "Etsi:",
           }
         });
       });
+
+			//window.onload = getData();
     </script>
-
-		<script>
-			<?php
-				if ($year!=0)
-				{
-					echo 'function refupdate() {
-						if(window.XMLHttpRequest) {
-							xmlhttp = new XMLHttpRequest();
-						} else {
-							xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-						}
-
-						xmlhttp.open("GET","calculateReferenceNumber.php?y=' . $year . '",true);
-						xmlhttp.send();
-					}';
-				}
-			?>
-		</script>
-		<style>
-		th { padding: 5px; }
-		</style>
-
 	</head>
 	<body>
-      <h2>Laskut</h2>
+    <h2>Laskut</h2>
 
-      <table id="billingtable" class="display">
-				<thead style="display: grid">
-	        <tr style="display: grid, grid-template-columns: 1fr 4fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr 2fr">
-						<th>Jäsennro.</th>
-						<th>Nimi</th>
-						<th>Erä 1</br>Viitenumero</th>
-						<th>Eräpäivä</br>Summa</th>
-						<th>Erä 2</br>Viitenumero</th>
-						<th>Eräpäivä</br>Summa</th>
-						<th>Erä 3</br>Viitenumero</th>
-						<th>Eräpäivä</br>Summa</th>
-						<th>Erä 4</br>Viitenumero</th>
-						<th>Eräpäivä</br>Summa</th>
-					</tr>
-	      </thead>
-				<tbody style="display: grid">
-					<?php
-          	$query = "call getTAData('$year')";
-          	$array = array();
-
-            if (mysqli_multi_query($connection, $query))
-            {
-              do
-							{
-                if ($result = mysqli_store_result($connection))
-                {
-                  $i = 0;
-                  while ($row = mysqli_fetch_row($result))
-                  {
-                    $array[$i] = array();
-                    $array[$i]['id'] = $row[0];
-                    $array[$i]['ref1'] = $row[1];
-                    $array[$i]['paid1'] = $row[2];
-                    $array[$i]['ref2'] = $row[3];
-                    $array[$i]['paid2'] = $row[4];
-                    $array[$i]['ref3'] = $row[5];
-                    $array[$i]['paid3'] = $row[6];
-                    $array[$i]['ref4'] = $row[7];
-                    $array[$i]['paid4'] = $row[8];
-                    $i++;
-                  }
-                  unset($i);
-                }
-              } while (mysqli_next_result($connection));
-            }
-
-            unset($query);
-
-            foreach ($array as &$value)
-            {
-              $id = $value['id'];
-              $result2 = getNames($connection, $id);
-
-              echo "<tr>";
-              echo ("<td>" . $value['id'] . "</td><td>" . $result2 . "</td>" .
-              "<td>" . $value['ref1'] . "</td><td>" . $value['paid1'] . "</td>" .
-              "<td>" . $value['ref2'] . "</td><td>" . $value['paid2'] . "</td>" .
-              "<td>" . $value['ref3'] . "</td><td>" . $value['paid3'] . "</td>" .
-              "<td>" . $value['ref4'] . "</td><td>" . $value['paid4'] . "</td>");
-              echo "</tr>";
-            }
-
-						function getNames($con, $num)
-            {
-              $namequery = "call getNames('$num')";
-
-              if (mysqli_multi_query($con, $namequery))
-              {
-                do
-								{
-                  if ($result = mysqli_store_result($con))
-                  {
-                    while ($tempres = mysqli_fetch_row($result))
-                    {
-                      $returnval = $tempres[0] . " " . $tempres[1];
-                    }
-                  }
-                } while (mysqli_next_result($con));
-              }
-
-              unset($namequery);
-              unset($tempres);
-
-              return ($returnval);
-            }
-          ?>
-
-				</tbody>
-      </table>
+    <table id="billingtable" class="display" style="width: 100%; margin: 10px; text-align: center;">
+			<thead style="display: grid;">
+        <tr style="display: grid; grid-template-columns: 3fr 6fr repeat(4, 6fr 4fr);">
+					<th class='leftie'>Jäsen-</br>numero</th>
+					<th class='leftie'></br>Nimi</th>
+					<th>Erä 1</br>Viitenumero</th>
+					<th><?=$dueDates[0]?></br>Summa</th>
+					<th>Erä 2</br>Viitenumero</th>
+					<th><?=$dueDates[1]?></br>Summa</th>
+					<th>Erä 3</br>Viitenumero</th>
+					<th><?=$dueDates[2]?></br>Summa</th>
+					<th>Erä 4</br>Viitenumero</th>
+					<th><?=$dueDates[3]?></br>Summa</th>
+				</tr>
+      </thead>
+			<tbody id="billingbody" style="display: grid;">
+			</tbody>
+    </table>
 		<?php
 		  include('include\footer.php');
 		?>
