@@ -11,7 +11,7 @@
 	else {
 		$year = $_SESSION['superyear'];
 	}
-
+	$dueDates = array("20.11." . ($year - 1), "20.01." . $year, "20.03." . $year, "20.05." . $year);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,24 +24,21 @@
     <link rel="stylesheet" type="text/css" href="../datatables/DataTables-1.10.16/css/jquery.dataTables.min.css">
 
 		<script>
-			<?php
-				if ($year != 0)
-				{
-					echo "function refupdate() {
-						if(window.XMLHttpRequest) {
-							xmlhttp = new XMLHttpRequest();
-						} else {
-							xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
-						}
-
-						xmlhttp.open('GET','calculateReferenceNumber.php?y=" . $year . "',true);
-						xmlhttp.send();
-					}";
+			var year = <?=$year?>;
+			function refupdate(year) {
+				if(window.XMLHttpRequest) {
+					xmlhttp = new XMLHttpRequest();
+				} else {
+					xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
 				}
 
-				$dueDates = array("20.11." . ($year - 1), "20.01." . $year, "20.03." . $year, "20.05." . $year);
-			?>
+				xmlhttp.open('GET','calculateReferenceNumber.php?y=' + year,true);
+				xmlhttp.send();
+			}
+			refupdate(year);
+		</script>
 
+		<script>
 			var billingData;
 
 			function getData()
