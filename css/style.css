@@ -1,11 +1,12 @@
-html, body{
+body{
 font-family: "open sans", "helvetica Neue", helvetica, arial, sans-serif;
 background-color: #f3f3f4;
 color: #676a6c;
 height: 100%;
 margin: auto;
-padding: 0;
+padding: 3px;
 overflow: auto;
+max-width: 1500px;
 
 }
 .box{
@@ -41,4 +42,10 @@ iframe {
 .active{
     background:#357EBD;
     color:#orange;
+}
+
+.dataTables_filter, .dataTables_info, .dataTables_length, .dataTables_paginate
+{
+  padding-right: 10px;
+  padding-left: 10px;
 }

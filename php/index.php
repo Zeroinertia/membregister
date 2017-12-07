@@ -14,7 +14,8 @@
 
     <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <script src="../datatables/Datatables-1.10.16/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../datatables/DataTables-1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../datatables/DataTables-1.10.16/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
 
     <script type="text/javascript">
       $(document).ready(function() {
@@ -41,7 +42,7 @@
     </script>
   </head>
   <body>
-    <table id="indextable" class="display">
+    <table id="indextable" class="display" style="width: 99%; max-width 1000px;">
       <thead style="display: grid">
         <tr style="display: grid; grid-template-columns: 1fr 2fr 2fr 1fr 1fr">
           <th>Jäsennumero</th>

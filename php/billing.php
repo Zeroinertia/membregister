@@ -106,7 +106,7 @@
 			//window.onload = getData();
     </script>
 	</head>
-	<body style="max-width: 1500px; padding: 1px;">
+	<body>
     <h2>Laskut</h2>
 
     <table id="billingtable" class="display" style="width: 99%; margin: auto; text-align: center;">

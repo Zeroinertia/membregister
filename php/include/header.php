@@ -43,15 +43,11 @@
               </ul>
 
               <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">Login</a></li>
+                  <li><a href="#">Asetukset</a></li>
               </ul>
           </div>
 
       </nav>
 
-
-      <div id="content">
-
-      </div>
     </body>
 </html>

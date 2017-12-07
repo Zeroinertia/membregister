@@ -84,7 +84,7 @@ $id = $_GET['id'];
   <h2>Muokkaa</h2>
 
   <div class="container">
-    <form class="form-inline" action="edit.php">
+    <form class="form-inline" action="edit.php" style="max-width: 600px; width: 80%;">
         <div class="form-group">
           <label for="lastname">Sukunimi:</label><br>
           <input type="text" class="form-control" id="lastname" value="<?=$lname?>" name="sukunimi">
