@@ -25,13 +25,13 @@
 
         $array[$i] = array();
         $array[$i]['id'] = $leading . $row[0];
-        $array[$i]['ref1'] = $row[1];
+        $array[$i]['ref1'] = "<button class='btn' value='$row[1]'>$row[1]</button>";
         $array[$i]['paid1'] = $row[2];
-        $array[$i]['ref2'] = $row[3];
+        $array[$i]['ref2'] = "<button class='btn'  value='$row[3]'>$row[3]</button>";
         $array[$i]['paid2'] = $row[4];
-        $array[$i]['ref3'] = $row[5];
+        $array[$i]['ref3'] = "<button class='btn' value='$row[5]'>$row[5]</button>";
         $array[$i]['paid3'] = $row[6];
-        $array[$i]['ref4'] = $row[7];
+        $array[$i]['ref4'] = "<button class='btn' value='$row[7]'>$row[7]</button>";
         $array[$i]['paid4'] = $row[8];
         $i++;
       }

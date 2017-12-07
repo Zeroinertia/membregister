@@ -125,6 +125,7 @@
 				</tr>
       </thead>
 			<tbody id="billingbody" style="display: grid;">
+
 			</tbody>
     </table>
 		<?php
