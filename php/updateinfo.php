@@ -26,7 +26,7 @@ session_start();
   $query = "CALL updateEditDefaults('$id', '$newLName', '$newFName', '$newEMail', '$newAddress', '$newPhone', '$activity')";
   $sql = mysqli_query($connection, $query) or die("Query failed: " . mysqli_error($connection));
 
-  $SUPERID = 0;
+  $_SESSION['superid'];
   header("location: index.php");
   exit();
 ?>
