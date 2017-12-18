@@ -1,7 +1,7 @@
 <?php
 	require_once('connection.php');
 	$page='billing';
-	include_once('include\header.php');
+	include('include\header.php');
 
 	if (isset($_GET['y']))
 	{
@@ -22,6 +22,7 @@
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
 		<script src="../datatables/Datatables-1.10.16/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../datatables/DataTables-1.10.16/css/jquery.dataTables.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
 
 		<script>
 			var year = <?=$year?>;
@@ -38,19 +39,6 @@
 			refupdate(year);
 		</script>
 
-		<script>
-			var billingData;
-
-			function getData()
-			{
-				$.ajax({
-					type: 'GET',
-					url: '../script/getTAs.php',
-					dataType: 'json',
-					success: function(data) { billingData = data; console.log(billingData); }
-				});
-			}
-		</script>
 		<style>
 		th {
 			padding: 5px;

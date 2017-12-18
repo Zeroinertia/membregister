@@ -2,8 +2,8 @@
   require_once('connection.php');
   session_start();
   $page='koti';
-  include_once('include\header.php');
-  include_once('include\footer.php');
+  include('include\header.php');
+  include('include\footer.php');
 ?>
 
 <!DOCTYPE HTML>

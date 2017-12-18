@@ -1,6 +1,5 @@
 <?php
 	require "connection.php";
-	require "billing.php";
 
 	if (isset($_GET['y']))
 	{
